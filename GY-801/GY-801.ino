@@ -7,7 +7,7 @@
 
 #include <Arduino.h>
 #include "Wire.h"
-#include "MMC5883.h"
+//#include "MMC5883.h" 
 #include <I2Cdev.h>
 #include "L3G4200D.h"
 #include "ADXL345.h"
@@ -17,7 +17,7 @@
 
 L3G4200D gyro;
 ADXL345 accel;
-MMC5883MA MMC5883(Wire);
+//MMC5883MA MMC5883(Wire);
 Adafruit_BMP085_Unified bmp = Adafruit_BMP085_Unified(10085);
 
 int16_t ax, ay, az;
@@ -45,15 +45,15 @@ void setup()
   if (!bmp.begin())
     Serial.print("Ooops, no BMP085 detected ... Check your wiring or I2C ADDR!");
 
-Serial.print("MMC5883MA ");
+/*Serial.print("MMC5883MA ");
   MMC5883.begin();
   MMC5883.calibrate();
 }
-
+*/
 void loop()
 {
 
-  Serial.print(MMC5883.readData());
+  //Serial.print(MMC5883.readData());
 
   Serial.print("     ");
   gyro.getAngularVelocity(&avx, &avy, &avz);
